@@ -3,7 +3,7 @@ import { useState } from "react";
 import SubAccordion from "./Card-Sub-Accordion";
 import AddonCardHeader from "./Card-Header";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-export default function CardItem({ cardProps }: { cardProps: any }) {
+export default function CardItem({ cardProps }) {
 
     const [expand, setExpand] = useState(false);
 

@@ -2,7 +2,7 @@ import { Box, Accordion, AccordionSummary, Typography, Badge, AccordionDetails, 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import WarningRoundedIcon from '@mui/icons-material/WarningRounded';
-export default function SubAccordion({ cardProps }: { cardProps: any }) {
+export default function SubAccordion({ cardProps }) {
 
     const {
         Colornivel3,
@@ -12,7 +12,7 @@ export default function SubAccordion({ cardProps }: { cardProps: any }) {
     } = cardProps
 
     return (<>
-    {/* Able to map for more sub accordions */}
+        {/* Able to map for more sub accordions */}
         <Box sx={{
             width: "766px",
             border: "1px solid rgba(16, 24, 64, 0.18)",
@@ -91,11 +91,11 @@ export default function SubAccordion({ cardProps }: { cardProps: any }) {
                                     <TableCell align="center">
                                         {/* {checkeds} */}
                                         1
-                                        </TableCell>
+                                    </TableCell>
                                     <TableCell align="center">
                                         {/* {Errors} */}
                                         0
-                                        </TableCell>
+                                    </TableCell>
                                 </TableRow>
                             </TableBody>
                         </Table>

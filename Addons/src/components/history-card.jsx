@@ -19,7 +19,7 @@ export default function HistoryCard() {
     }
 
     return (
-        <Card sx={{ width: "538px"}}>
+        <Card sx={{ width: "538px" }}>
             <CardContent sx={{ display: "flex", flexDirection: "column", gap: "4px" }}>
                 <Box sx={{ display: "flex", flexDirection: "column" }}>
                     <Box sx={{ display: "flex" }}>

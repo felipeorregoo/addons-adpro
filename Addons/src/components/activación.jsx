@@ -1,5 +1,5 @@
-import { Box, Button, Dialog, DialogTitle, DialogContent, DialogActions, Typography, Divider, Alert, Checkbox, TextField, Chip, Snackbar, FormControl, InputLabel, Select, SelectChangeEvent, MenuItem, InputAdornment, IconButton } from "@mui/material"
-import { useState, ChangeEvent } from "react"
+import { Box, Button, Dialog, DialogTitle, DialogContent, DialogActions, Typography, Divider, Alert, Checkbox, TextField, Chip, Snackbar, FormControl, InputLabel, Select, MenuItem, InputAdornment, IconButton } from "@mui/material"
+import { useState } from "react"
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import InfoIcon from '@mui/icons-material/Info';
 import WarningIcon from '@mui/icons-material/Warning';
@@ -40,7 +40,7 @@ export default function ActivacionAddon() {
 
     const [activateCheck3, setActivateCheck3] = useState(false)
 
-    const handleCheck3 = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleCheck3 = (event) => {
         setActivateCheck3(event.target.checked);
     };
 
@@ -52,8 +52,8 @@ export default function ActivacionAddon() {
 
     const [hdMenu, setHdMenu] = useState('');
 
-    const handleSelectChange = (event: SelectChangeEvent) => {
-        setHdMenu(event.target.value as string);
+    const handleSelectChange = (event) => {
+        setHdMenu(event.target.value);
     }
 
     return (<>

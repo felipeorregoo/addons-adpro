@@ -3,7 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import * as React from 'react';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import CardList from "../components/Addons-card/Card-list";
 import { useAddonsContext } from "../hooks/Json-Hook";
 
@@ -11,11 +11,11 @@ export default function Addons() {
 
     const [selectedValue, setSelectedValue] = React.useState('vigentes');
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => { setSelectedValue(event.target.value) };
+    const handleChange = (event) => { setSelectedValue(event.target.value) };
 
     const [menuAdmin, setmenuAdmin] = React.useState('');
 
-    const handleSelectChange = (event: SelectChangeEvent) => { setmenuAdmin(event.target.value as string) };
+    const handleSelectChange = (event) => { setmenuAdmin(event.target.value) };
 
     const [checked1, setChecked1] = React.useState(true);
 
@@ -35,6 +35,35 @@ export default function Addons() {
 
     const addonsDataList = useAddonsContext();
 
+    const filteredAddons = () => {
+        // Case only GREEN in Colornivel1
+        if (checked1 && !checked2) {
+            return addonsDataList.filter((addonDataItem) => addonDataItem.Colornivel1 == "GREEN")
+        }
+        // Case only RED in Colornivel1
+        else if (!checked1 && checked2) {
+            return addonsDataList.filter((addonDataItem) => addonDataItem.Colornivel1 == "RED")
+        }
+        // Case all the filters in true
+        else if (checked1 && checked2) {
+            return addonsDataList.filter((addonDataItem) => addonDataItem)
+        }
+        // Exceptions return an empty array, prevent errors
+        else
+            return addonsDataList.filter((addonDataItem) => !addonDataItem)
+    }
+
+    const autocompleteMenu = [
+        { id: '1', label: '135 Observaciones por insumo en el formato...' },
+        { id: '2', label: '135 Observaciones por insumo en el formato...' },
+        { id: '3', label: '135 Observaciones por insumo en el formato...' },
+        { id: '4', label: '135 Observaciones por insumo en el formato...' },
+        { id: '5', label: '135 Observaciones por insumo en el formato...' },
+        { id: '6', label: '135 Observaciones por insumo en el formato...' },
+        { id: '7', label: '135 Observaciones por insumo en el formato...' },
+        { id: '8', label: '135 Observaciones por insumo en el formato...' },
+    ]
+
     return (<>
         <Box sx={{ width: "1204px", height: "561px", display: "flex", ml: "21px", pt: "17px" }}>
             <Box sx={{
@@ -51,8 +80,8 @@ export default function Addons() {
                     flexDirection: "column",
                     gap: "4px"
                 }}>
-
-                    <CardList />
+                    {/* {console.log(filteredAddons())} */}
+                    <CardList addonList={filteredAddons()} />
 
                 </Box>
             </Box>
@@ -185,13 +214,3 @@ export default function Addons() {
     </>)
 }
 
-const autocompleteMenu = [
-    { id: '1', label: '135 Observaciones por insumo en el formato...' },
-    { id: '2', label: '135 Observaciones por insumo en el formato...' },
-    { id: '3', label: '135 Observaciones por insumo en el formato...' },
-    { id: '4', label: '135 Observaciones por insumo en el formato...' },
-    { id: '5', label: '135 Observaciones por insumo en el formato...' },
-    { id: '6', label: '135 Observaciones por insumo en el formato...' },
-    { id: '7', label: '135 Observaciones por insumo en el formato...' },
-    { id: '8', label: '135 Observaciones por insumo en el formato...' },
-]

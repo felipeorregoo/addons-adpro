@@ -1,9 +1,9 @@
-import { Box, Typography} from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import ActivacionAddon from "../activación";
 import CardDialogs from "./Card-Dialog";
 import TooltipAddonNoEstandar from "../tooltip-addon-no-estandar";
 import TooltipModuloRequerido from "../tooltip-modulo-requerido";
-export default function AddonCardHeader({cardProps}: { cardProps: any }) {
+export default function AddonCardHeader({ cardProps }) {
 
     const { AddonNo,
         AddonNombre,
